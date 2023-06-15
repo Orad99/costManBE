@@ -1,1 +1,0 @@
-let orad = 1
