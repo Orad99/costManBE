@@ -7,10 +7,13 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const costRouter = require('./routes');
+require('dotenv').config();
+
 
 
 const app = express();
 const port = 3000;
+const connectionString = process.env.MONGODB_CONNECTION_STRING;
 
 
 /* uses */
@@ -24,7 +27,7 @@ app.listen(port, () => {
 });
 
 /* Mongo Connection */
-mongoose.connect('mongodb+srv://oradNiv:4X8zsikzJBWdpKb9@cluster0.or7u2uk.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect(connectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
